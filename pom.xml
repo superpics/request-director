@@ -14,6 +14,24 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- spring-context实现了Spring注入容器并且依赖：spring-core,spring-expression,spring-aop以及spring-beans。这些依赖包使容器可以支持Spring的一些核心技术：Spring核心组件,Spring EL表达式 (SpEL), 面向切面编程,JavaBean机制。 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>4.3.8.RELEASE</version>
+    </dependency>
+
+    <!-- 增加Spring Web和Servlet支持，需要在上面已配置的pom文件中额外增加两个依赖,spring-web包包含Servlet和Portlet所需要通用组件，spring-webmvc则在Servlet环境中启用MVC支持。由于spring-webmvc依赖于spring-web，所以定义了spring-webmvc依赖后，可以不用显式的在pom定义spring-web。 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>4.3.8.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>4.3.8.RELEASE</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>request-director</finalName>

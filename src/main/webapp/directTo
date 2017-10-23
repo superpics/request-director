@@ -1,0 +1,6 @@
+#本文件作用：进入welcome-file-list的时候不会出现404错误
+
+1.web.xml
+    welcome-file-list 设置为 directTo
+2.根目录下新建一个 directTO
+3.添加一个directTo方法
