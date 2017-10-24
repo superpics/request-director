@@ -8,12 +8,6 @@
   <name>request-director Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
     <!-- spring-context实现了Spring注入容器并且依赖：spring-core,spring-expression,spring-aop以及spring-beans。这些依赖包使容器可以支持Spring的一些核心技术：Spring核心组件,Spring EL表达式 (SpEL), 面向切面编程,JavaBean机制。 -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -31,6 +25,12 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>4.3.8.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
