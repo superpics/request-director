@@ -1,5 +1,7 @@
 package org.iconsider.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +18,7 @@ import java.util.ResourceBundle;
 @RestController
 @RequestMapping("/directTo")
 public class RequestController {
+    private static final Logger LOG = LoggerFactory.getLogger(RequestController.class);
     @RequestMapping(method = RequestMethod.GET)
     public void direct(HttpServletRequest request, HttpServletResponse response) {
         String serverName = request.getServerName();
@@ -27,11 +30,14 @@ public class RequestController {
                 ResourceBundle resource = ResourceBundle.getBundle("urls");
                 String redirectUrl = resource.getString(subDomain);
                 response.sendRedirect(redirectUrl);
+                LOG.info("{} => {}", serverName, redirectUrl);
             } catch (Exception e) {
                 redirectTo404(response);
+                LOG.error("no url match domain {}", serverName);
             }
         } else {
             redirectTo404(response);
+            LOG.error("domain {}'s format is wrong", serverName);
         }
     }
 
